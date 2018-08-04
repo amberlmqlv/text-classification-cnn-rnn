@@ -9,7 +9,7 @@ for category in $( ls THUCNews); do
 
   dir=THUCNews/$category
   newdir=data/thucnews/$category
-  if [ -d $newdir ]; then
+  if [ -f $newdir ]; then
     rm -rf $newdir
     mkdir $newdir
   fi
