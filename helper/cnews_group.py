@@ -18,10 +18,13 @@ def save_file(dirname):
     dirname: 原数据目录
     文件内容格式:  类别\t内容
     """
+    categories = ['体育', '财经', '房产', '家居', '教育', '科技', '时尚', '时政', '游戏', '娱乐']
     f_train = open('data/cnews/cnews.train.txt', 'w', encoding='utf-8')
     f_test = open('data/cnews/cnews.test.txt', 'w', encoding='utf-8')
     f_val = open('data/cnews/cnews.val.txt', 'w', encoding='utf-8')
     for category in os.listdir(dirname):   # 分类目录
+        if category not in categories:
+            continue
         cat_dir = os.path.join(dirname, category)
         if not os.path.isdir(cat_dir):
             continue
